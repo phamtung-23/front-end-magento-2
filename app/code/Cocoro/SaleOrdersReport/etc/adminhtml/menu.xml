@@ -1,0 +1,12 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Cocoro_SaleOrdersReport::saleorders" 
+        title="Sale Orders Report" 
+        translate="title" 
+        module="Cocoro_SaleOrdersReport" 
+        sortOrder="20" 
+        parent="Magento_Reports::report_salesroot"
+        action="saleorders/index/index" 
+        resource="Cocoro_SaleOrdersReport::saleorders"/>
+    </menu>
+</config>

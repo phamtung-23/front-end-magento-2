@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">saleorders_form.saleorders_form_data_source</item>
+            <item name="deps" xsi:type="string">saleorders_form.saleorders_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Customer Return Information</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">saleorders_form</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+
+        <item name="buttons" xsi:type="array">
+            <item name="save" xsi:type="string">Cocoro\SaleOrdersReport\Block\Adminhtml\SaleOrders\Button\ShowButton</item>
+        </item>
+    </argument>
+
+
+    <dataSource name="saleorders_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Cocoro\SaleOrdersReport\Ui\DataProvider\Form\DataProvider</argument>
+            <argument name="name" xsi:type="string">saleorders_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string"></argument>
+            <argument name="requestFieldName" xsi:type="string"></argument>
+            <argument name="externalProvider" xsi:type="string">saleorders_form.saleorders_form_data_source</argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Cocoro_SaleOrdersReport/js/form/provider</item>
+                <item name="submit_url" xsi:type="url" path="*/*/save"/>
+            </item>
+        </argument>
+    </dataSource>
+
+    
+    <fieldset name="saleorders_filter">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="collapsible" xsi:type="boolean">false</item>
+                <item name="label" xsi:type="string" translate="true">Filters</item>
+                <item name="sortOrder" xsi:type="number">20</item>
+            </item>
+        </argument>
+
+        <field name="saleorders_date_used" formElement="select">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="string">created_at</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Date Used</label>
+                <dataScope>saleorders_date_used</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options>
+                            <option name="1" xsi:type="array">
+                                <item name="value" xsi:type="string">created_at</item>
+                                <item name="label" xsi:type="string">Order Created</item>
+                            </option>
+                            <option name="2" xsi:type="array">
+                                <item name="value" xsi:type="string">updated_at</item>
+                                <item name="label" xsi:type="string">Order Updated</item>
+                            </option>
+                        </options>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+
+        <field name="saleorders_period_from" formElement="date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">saleorders_filter</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="validate-date" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">from</label>
+                <visible>true</visible>
+                <dataScope>saleorders_period_from</dataScope>
+            </settings>
+        </field>
+
+        <field name="saleorders_period_to" formElement="date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">saleorders_filter</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="validate-date" xsi:type="boolean">true</rule>
+                    <rule name="validate-date-range" xsi:type="string">saleorders_period_from</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">to</label>
+                <visible>true</visible>
+                <dataScope>saleorders_period_to</dataScope>
+            </settings>
+        </field>
+
+        <field name="saleorders_order_type" formElement="multiselect" template="Cocoro_SaleOrdersReport/grid/filters/elements/ui-select" component="Magento_Ui/js/form/element/ui-select">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Order Type</label>
+                <dataScope>saleorders_order_type</dataScope>
+            </settings>
+            <formElements>
+                <multiselect>
+                    <settings>
+                        <options class="Cocoro\SaleOrdersReport\Ui\Component\Listing\Column\SaleOrders\OrderType"/>
+                    </settings>
+                </multiselect>
+            </formElements>
+        </field>
+
+        <field name="saleorders_order_status" formElement="multiselect" template="Cocoro_SaleOrdersReport/grid/filters/elements/ui-select" component="Magento_Ui/js/form/element/ui-select">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Order Status</label>
+                <dataScope>saleorders_order_status</dataScope>
+            </settings>
+            <formElements>
+                <multiselect>
+                    <settings>
+                        <options class="Magento\Sales\Model\Config\Source\Order\Status"/>
+                    </settings>
+                </multiselect>
+            </formElements>
+        </field>
+
+        <field name="saleorders_order_payment" formElement="multiselect" template="Cocoro_SaleOrdersReport/grid/filters/elements/ui-select" component="Magento_Ui/js/form/element/ui-select">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Order Payment</label>
+                <dataScope>saleorders_order_payment</dataScope>
+            </settings>
+            <formElements>
+                <multiselect>
+                    <settings>
+                        <options class="Cocoro\SaleOrdersReport\Ui\Component\Listing\Column\SaleOrders\PaymentMethods"/>
+                    </settings>
+                </multiselect>
+            </formElements>
+        </field>
+
+
+    </fieldset>
+
+</form>

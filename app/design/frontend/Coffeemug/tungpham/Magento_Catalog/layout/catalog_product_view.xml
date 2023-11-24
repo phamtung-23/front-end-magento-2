@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="mage/gallery/gallery.css"/>
+    </head>
+    <update handle="catalog_product_opengraph" />
+    <update handle="page_calendar"/>
+    <body>
+        <!-- <referenceBlock name="page.main.title">
+            
+        </referenceBlock> -->
+        <move element="product.info.sku" destination="page.main.title" />
+        <move element="product.info.review" destination="page.main.title" />
+        <referenceContainer name="content">
+              <container name="main.content.product"  htmlTag="div"  htmlClass="row m-5">
+                <container name="product.info.main.custom" htmlTag="div" htmlClass="col-12 col-md-8">
+                    <block class="Magento\Framework\View\Element\Template" name="price.title.content" template="Magento_Catalog::custom-member.phtml" before="-"/>
+                    <block class="Magento\Catalog\Block\Product\View\Description" name="product.timer" template="Magento_Catalog::timer.phtml" />
+                </container>
+                <container name="product.info.media.custom" htmlTag="div" htmlClass="col-12 col-md-4"  before="-"></container>
+              </container>
+              <container name="main.content.product.details"  htmlTag="div"  htmlClass="row d-flex justify-content-center m-5" after="main.content.product"></container>
+              <block class="Magento\Framework\View\Element\Template" name="custom.form" template="Magento_Catalog::custom_form.phtml" after="-"/>
+        </referenceContainer>
+
+        <move element="product.info.main" destination="product.info.main.custom" />
+        <move element="product.info.media" destination="product.info.media.custom" />
+        <move element="product.info.details" destination="main.content.product.details" />
+        <move element="product.info.stock.sku" destination="product.info.price" after="product.price.final"/>
+        <move element="view.addto.wishlist" destination="product.info.options.wrapper.bottom" />
+
+        <referenceBlock name="view.addto.compare" remove="true"></referenceBlock>
+
+    </body>
+</page>

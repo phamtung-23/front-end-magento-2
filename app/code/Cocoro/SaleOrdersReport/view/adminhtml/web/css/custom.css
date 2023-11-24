@@ -1,0 +1,27 @@
+.saleorders-index-index .dashboard-totals {
+    margin-left: 0;
+    margin-right: 0;
+}
+.saleorders-index-index .dashboard-totals-list {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: 100px;
+    column-gap: 24px;
+    align-items: center;
+}
+.saleorders-index-index .dashboard-totals-list:before,
+.saleorders-index-index .dashboard-totals-list:after {
+    display: none;
+}
+.saleorders-index-index .dashboard-totals-item {
+    display: block;
+    text-align: center;
+    grid-template-columns: repeat(3,1fr);
+    padding: 2rem;
+    gap: 8px;
+    background: rgba(40,40,40,0.1);
+    width: 100%;
+}
+.saleorders-index-index .dashboard-totals-item .dashboard-totals-value {
+    color: #760E62;
+}

@@ -1,0 +1,106 @@
+<!-- <?xml version="1.0"?> -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/logo.png</argument>
+                <argument name="logo_width" xsi:type="number">200</argument>
+                <argument name="logo_alt" xsi:type="string">Cocorolife</argument>
+            </arguments>
+        </referenceBlock>
+        <!-- remove -->
+        <referenceContainer name="top.links" remove="true"/>
+        <referenceContainer name="minicart" remove="true"/>
+         <!-- create container  -->
+        <referenceContainer name="header.container">
+            <container name="banner.main" label="bannerMain" htmlTag="div"  htmlClass="banner-main">
+                <block class="Magento\Framework\View\Element\Template" name="block.banner.manin" template="Magento_Theme::html/banner.phtml" />
+            </container>
+        </referenceContainer>
+        
+        <referenceContainer name="header.panel.wrapper">
+            <!-- <container name="page.top.banner" label="headerLeft" htmlTag="div"  htmlClass="page-top-banner">
+                <block class="Magento\Framework\View\Element\Template" name="block.banner" template="Magento_Theme::html/banner.phtml" />
+            </container> -->
+            <container name="header.top.inner" label="headerCenter" htmlTag="div"  htmlClass="header-top-inner">
+                <container name="header.top.inner.content" label="headerTopInnerContent" htmlTag="div"  htmlClass="header-top-inner-content d-flex justify-content-center"/>
+            </container>
+            <container name="sticky.wrap" label="headerRight" htmlTag="div"  htmlClass="sticky-wrap d-flex justify-content-center" >
+                <container name="header.maininner.row" label="headerMaininner"  htmlTag="div" htmlClass="header-maininner-row container-fluid row">
+                    <container name="inner.logo" label="innerLogo"  htmlTag="div"  htmlClass="col-logo col-12 col-lg-3 d-flex align-items-center" />
+                    <container name="inner.search" label="innerSearch"  htmlTag="div"  htmlClass="col-search col-12 col-lg-6 d-flex align-items-center" />
+                    <container name="inner.action" label="innerAction"  htmlTag="div"  htmlClass="col-btn-actions-destop col-12 col-lg-3 d-flex align-items-center">
+                        <container name="header.content.action" label="headerContentAction"  htmlTag="div"  htmlClass="header-content-action d-flex justify-content-center align-items-center">
+                            <container name="shopping.cart.custom" label="shoppingCardCustom" htmlTag="div"  htmlClass="shopping-card-custom">
+                                <block class="Magento\Framework\View\Element\Template" name="shopping.cart.icon" template="Magento_Theme::html/shopping-cart-custom.phtml" />
+                            </container>
+                            <container name="user.topbar" label="userTopbar"  htmlTag="div"  htmlClass="user-topbar d-flex justify-content-center align-items-center" >
+                                <container name="my.accout.custom" label="myAccountCustom" htmlTag="div" htmlClass="my-account-custom">
+                                    <block class="Magento\Framework\View\Element\Template" name="my.account.icon" template="Magento_Theme::html/my-account-custom.phtml" />
+                                </container>
+                                <container name="accoount.topbar" label="accountTopbar"  htmlTag="div" htmlClass="account-topbar" />
+                            </container>
+                        </container>
+                    </container>
+                </container>
+            </container>
+            <container name="header.menu.content" label="headerRight" htmlTag="div"  htmlClass="header-menu-content" />
+            <container name="main.breadcrumbs.custom"  htmlTag="div"  htmlClass="w-100 breadcrumbs-main" after="-"/>
+        </referenceContainer>
+        
+        <!-- footer -->
+        <referenceContainer name="footer">
+           <container name="footer.container" label="footerContainer" htmlTag="div" htmlClass="footer-container">
+                <container name="footer.main" label="footerMain"  htmlTag="div"  htmlClass="footer-main" >
+                    <container name="footer.main.row" label="footerMainRow"  htmlTag="div"  htmlClass="row">
+                        <block class="Magento\Framework\View\Element\Template" name="footer.info.custom"  template="Magento_Theme::html/footer-custom.phtml" />
+                    </container>
+                </container>
+                <container name="footer.copy.right" label="footerCopyRight"  htmlTag="div"  htmlClass="footer-copy-right d-flex justify-content-between">
+                    <container name="footer.payment" label="footerPayment" htmlTag="div"  htmlClass="footer-payment mt-3">
+                        <block class="Magento\Framework\View\Element\Template" name="payment.info"  template="Magento_Theme::html/payment-info.phtml" />
+                    </container>
+                </container>
+           </container>
+        </referenceContainer>
+
+        <!-- main -->
+        <!-- <referenceContainer name="main">
+            <block class="Magento\Framework\View\Element\Template" name="payment.info.test"  template="Magento_Theme::html/payment-info.phtml" />
+        </referenceContainer> -->
+
+
+
+        <!-- remove -->
+        <referenceContainer name="header.panel" remove="true"/>
+        <referenceContainer name="form.subscribe" remove="true"/>
+        <referenceContainer name="report.bugs" remove="true"/>
+        <!-- <referenceContainer name="breadcrumbs" remove="true"/> -->
+        <!-- move -->
+        <move element="breadcrumbs" destination="main.breadcrumbs.custom" before="-"/>
+
+        <move element="logo" destination="inner.logo" />
+        <move element="store_language" destination="header.top.inner.content" />
+        <move element="top.search" destination="inner.search" />
+        <move element="wish-list-link" destination="header.content.action" before="-" />
+        <move element="skip_to_content" destination="header.panel" after='-'/>
+        <move element="register-link" destination="accoount.topbar" />
+        <move element="authorization-link" destination="accoount.topbar" />
+        <move element="header" destination="header.top.inner.content" />
+        <move element="page.top" destination="header.menu.content" />
+        <move element="banner.main" destination="header.container" before="-" />
+        <move element="user.topbar" destination="header.content.action" after="-" />
+        <!-- <move element="footer_links" destination="footer.main.row.one" after="-" /> -->
+        <move element="copyright" destination="footer.copy.right" before="-" />
+
+        <referenceBlock name="footer_links" remove="true"></referenceBlock>
+        
+
+
+
+        
+            
+        
+    </body>
+</page>

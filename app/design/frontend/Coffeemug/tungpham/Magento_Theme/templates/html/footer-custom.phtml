@@ -1,0 +1,104 @@
+<div id="element-footer1" class="col-12 col-md-6 col-lg-3 mb-3">
+  <div data-role="collapsible">
+    <div class="h4 title" data-role="trigger"> <?= __('QUICK LINKS') ?></div>
+  </div>
+  <ul class="footer links" data-role="content">
+    <li class="nav item"><a href="/privacy-policy-cookie-restriction-mode/"><?= __('Privacy and Cookie Policy') ?></a></li>
+    <li class="nav item"><a href="/search/term/popular/"><?= __('Search Terms') ?></a></li>
+    <li class="nav item"><a href="/catalogsearch/advanced/" data-action="advanced-search"><?= __('Advanced Search') ?></a></li>
+    <li class="nav item"><a href="/sales/guest/form/"><?= __('Orders and Returns') ?></a></li>
+    <li class="nav item"><a href="/contact/"><?= __('Contact Us') ?></a></li>
+  </ul>
+</div>
+<div id="element-footer2" class="col-12 col-md-6 col-lg-3 mb-3">
+  <div class="footer-links-wrap toggle-mobile" data-role="collapsible">
+    <div class="h4 title" data-role="trigger"><?= __('COCORO LIFE VIỆT NAM') ?><i class="mbi mbi-chevron-down"></i></div>
+  </div>
+  <div class="footer-container content-toggle" data-role="content">
+    <ul class="footer-links">
+      <li><a class="text-light" href="#"><?= __('About COCORO Life Viet Nam') ?></a></li>
+      <li><a class="text-light" href="#"><?= __('FAQs') ?></a></li>
+    </ul>
+  </div>
+</div>
+<div id="element-footer3" class="col-12 col-md-6 col-lg-3 mb-3">
+  <div class="footer-links-wrap toggle-mobile" data-role="collapsible">
+    <div class="h4 title" data-role="trigger"><?= __('Follow Us') ?><i class="mbi mbi-chevron-down"></i></div>
+  </div>
+  <div class="footer-container content-toggle" data-role="content">
+    <ul class="social-links d-flex mb-3">
+      <li><a class="m-5" title="facebook" href="https://www.facebook.com/cocorolifevietnam/" target="_blank"><img
+            src="https://www.cocorolife.vn/media/wysiwyg/homepage/Facebook.png" alt="" width="20"><span
+            class="text-hide">Facebook</span></a></li>
+      <li><a class="m-3" title="youtube" href="" target="_blank"><img
+            src="https://www.cocorolife.vn/media/wysiwyg/homepage/Youtube.png" alt="" width="20"><span
+            class="text-hide">Youtube</span></a></li>
+    </ul>
+    <div style="padding-bottom: 4px;" class="d-flex flex-column">
+      <div>
+        <img class="img-contact mb-2" src="https://www.cocorolife.vn/media/wysiwyg/homepage/COD_pow.png" alt="">
+      </div>
+      <div>
+        <img class="img-contact mb-2" src="https://www.cocorolife.vn/media/wysiwyg/homepage/ATM_pow.png" alt="">
+      </div>
+    </div>
+    <div>
+      <img class="img-contact" style="padding-right: 4px;"
+        src="https://www.cocorolife.vn/media/wysiwyg/homepage/VISA_pow.png" alt="">
+      <img class="img-contact" style="padding-right: 4px;"
+        src="https://www.cocorolife.vn/media/wysiwyg/homepage/Master_pow.png" alt="" ">
+    <img class=" img-contact" src="https://www.cocorolife.vn/media/wysiwyg/homepage/JCB_pow.png" alt="">
+    </div>
+  </div>
+</div>
+<div class="col-12 col-md-6 col-lg-3 mb-3">
+  <div class="footer-links-wrap information" data-role="collapsible">
+    <div class="h4 title" data-role="trigger"><?= __('SHARP ELECTRONICS (VIETNAM) COMPANY LIMITED') ?></div>
+  </div>
+  <div class="footer-container" data-role="content">
+    <div class="address"><?= __('Address: T5-B03.07 & T5-B03.09, Floor No. 3 Masteri Thao Dien') ?> <br><?= __('159 Vo Nguyen Giap, Thao Dien Ward, Thu Duc City, Ho Chi Minh City, Viet Nam') ?></div>
+    <div class="email">Email: <a class="text-light" href="mailto:cskh@cocorolife.vn">cskh@cocorolife.vn</a></div>
+    <div class="address"><?= __('Tax No.: 0308159258 issued by Department of Planning & Investment of Ho Chi Minh City on 13/3/2009') ?></div>
+    <a href="http://online.gov.vn/Home/WebDetails/91028" target="_blank" rel="noopener"><img style="max-width: 150px;"
+        title="" src="https://www.cocorolife.vn/media/wysiwyg/homepage/logoSaleNoti.png" alt="" width="300"> </a>
+  </div>
+</div>
+
+
+<script>
+   require([
+      'jquery',
+      'accordion',
+      'domReady!'
+   ], function ($) {
+      
+    $(window).resize(function() {
+        if ($(window).width() < 768) {
+          $("#element-footer1").accordion({ 
+            "active": [0],
+            "collapsible": true,
+            "openedState": "active",
+            "multipleCollapsible": true });
+          $("#element-footer2").accordion({ 
+                "active": [0],
+                "collapsible": true,
+                "openedState": "active",
+                "multipleCollapsible": true });
+          $("#element-footer3").accordion({ 
+                "active": [0],
+                "collapsible": true,
+                "openedState": "active",
+                "multipleCollapsible": true });
+          $( "#element-footer1" ).accordion("deactivate");
+          $( "#element-footer2" ).accordion("deactivate");
+          $( "#element-footer3" ).accordion("deactivate");
+        } else {
+          $( "#element-footer1" ).accordion("activate");
+          $( "#element-footer2" ).accordion("activate");
+          $( "#element-footer3" ).accordion("activate");
+        }
+      });
+      
+
+   });
+</script>

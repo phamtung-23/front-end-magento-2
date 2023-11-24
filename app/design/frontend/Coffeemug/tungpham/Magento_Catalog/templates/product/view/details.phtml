@@ -1,0 +1,65 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Catalog\Block\Product\View\Details $block */
+/** @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer */
+?>
+<?php if ($detailedInfoGroup = $block->getGroupSortedChildNames('detailed_info', 'getChildHtml')):?>
+<div class="test-tabs">
+  <?php $layout = $block->getLayout(); ?>
+    <div class="warpper">
+        <?php $hideTabContent = false; ?>
+        <?php $number = ["one", "two", "three"] ; ?>
+        <?php $index = 0; ?>
+        <?php foreach ($detailedInfoGroup as $name):?>
+                <?php
+                    $html = $layout->renderElement($name);
+                    if (!$html || !trim($html)) {
+                        continue;
+                    }
+                    $alias = $layout->getElementAlias($name);
+                    $label = $block->getChildData($alias, 'title');
+                    ?>
+            <input class="radio" id=<?=$number[$index]?> name="group" type="radio" <?= $index === 0 ? 'checked' : '' ?>>
+            <?php $index++; ?>
+        <?php endforeach;?>
+        <div class="tabs">
+            <?php $index = 0; ?>
+            <?php foreach ($detailedInfoGroup as $name):?>
+                    <?php
+                        $html = $layout->renderElement($name);
+                        if (!$html || !trim($html)) {
+                            continue;
+                        }
+                        $alias = $layout->getElementAlias($name);
+                        $label = $block->getChildData($alias, 'title');
+                        ?>
+                <label class="tab" id="<?=$number[$index]?>-tab" for="<?=$number[$index]?>"><?=$label?></label>
+                <?php $index++; ?>
+            <?php endforeach;?>
+        </div>
+        <div class="panels">
+            <?php $index = 0; ?>
+            <?php foreach ($detailedInfoGroup as $name):?>
+                    <?php
+                        $html = $layout->renderElement($name);
+                        if (!$html || !trim($html)) {
+                            continue;
+                        }
+                        $alias = $layout->getElementAlias($name);
+                        $label = $block->getChildData($alias, 'title');
+                        ?>
+                <div class="panel" id="<?=$number[$index]?>-panel">
+                    <div>
+                        <?=$html?>
+                    </div>
+                </div>
+                <?php $index++; ?>
+            <?php endforeach;?>
+        </div>
+    </div>
+</div>
+<?php endif; ?>

@@ -1,0 +1,23 @@
+<?php 
+    $_product = $block->getProduct();
+    $special = $_product->getSpecialToDate();
+?>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+               "components": {
+                    "timer-scope": {
+                        "component": "Magento_Catalog/js/knockout-timer",
+                        "date": "<?= $special?>"
+                    }
+                }
+            }
+        }
+    }
+</script>
+
+<div data-bind="scope: 'timer-scope'">
+    <!-- ko template:getTemplate() --><!-- /ko -->
+</div>

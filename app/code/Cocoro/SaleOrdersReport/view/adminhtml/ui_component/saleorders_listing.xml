@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd" >
+   
+   <argument name="data" xsi:type="array">
+      <item name="js_config" xsi:type="array">
+         <item name="provider" xsi:type="string">saleorders_listing.saleorders_listing_data_source</item>
+         <item name="deps" xsi:type="string">saleorders_listing.saleorders_listing_data_source</item>
+      </item>
+      <item name="spinner" xsi:type="string">saleorders_columns</item>
+   </argument>
+
+   <dataSource>
+      <argument name="dataProvider" xsi:type="configurableObject">
+         <argument name="class" xsi:type="string">Cocoro\SaleOrdersReport\Ui\DataProvider\Listing\DataProvider</argument>
+         <argument name="name" xsi:type="string">saleorders_listing_data_source</argument>
+         <argument name="primaryFieldName" xsi:type="string">id</argument>
+         <argument name="requestFieldName" xsi:type="string">entity_id</argument>
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="update_url" xsi:type="url" path="mui/index/render" />
+               <item name="storageConfig" xsi:type="array">
+                  <item name="indexField" xsi:type="string">id</item>
+            </item>  
+            </item>
+         </argument>
+      </argument>
+      <argument name="data" xsi:type="array">
+         <item name="js_config" xsi:type="array">
+            <item name="component" xsi:type="string">Cocoro_SaleOrdersReport/js/grid/provider</item>
+         </item>
+      </argument>
+   </dataSource>
+   
+   <listingToolbar name="listing_top">
+     <exportButton class="Magento\Ui\Component\ExportButton" component="Magento_Ui/js/grid/export" displayArea="dataGridActions">
+         <settings>
+            <options>
+                  <option name="csv" xsi:type="array">
+                     <item name="value" xsi:type="string">csv</item>
+                     <item name="label" xsi:type="string" translate="true">CSV</item>
+                     <item name="url" xsi:type="string">*/export/gridToCsv</item>
+                  </option>
+                  <option name="xml" xsi:type="array">
+                     <item name="value" xsi:type="string">xml</item>
+                     <item name="label" xsi:type="string" translate="true">Excel XML</item>
+                     <item name="url" xsi:type="string">*/export/gridToXml</item>
+                  </option>
+            </options>
+         </settings>
+      </exportButton>
+   </listingToolbar>
+
+   <columns name="saleorders_columns" template="Cocoro_SaleOrdersReport/grid/listing">
+      <argument name="data" xsi:type="array">
+         <item name="config" xsi:type="array">
+            <item name="component" xsi:type="string">Cocoro_SaleOrdersReport/js/grid/listing</item>
+         </item>
+      </argument>
+      <selectionsColumn name="ids">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="visible" xsi:type="boolean">false</item>
+            </item>
+         </argument>
+      </selectionsColumn>
+      <column name="id">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="draggable" xsi:type="boolean">false</item>
+               <item name="label" xsi:type="string" translate="true">#</item>
+               <item name="sortOrder" xsi:type="number">20</item>
+               <item name="footerLabel" xsi:type="string" translate="true">Total</item>
+               <item name="colspan" xsi:type="string" translate="true">2</item>
+               <item name="component" xsi:type="string">Cocoro_SaleOrdersReport/js/grid/columns/column</item>
+               
+            </item>
+         </argument>
+      </column>
+      <column name="reported_date">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="draggable" xsi:type="boolean">false</item>
+               <item name="label" xsi:type="string" translate="true">Reported Date</item>
+               <item name="sortOrder" xsi:type="number">30</item>
+               <item name="component" xsi:type="string">Cocoro_SaleOrdersReport/js/grid/columns/column</item>
+            </item>
+         </argument>
+      </column>
+      <column name="orders">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="draggable" xsi:type="boolean">false</item>
+               <item name="label" xsi:type="string" translate="true">Orders</item>
+               <item name="sortOrder" xsi:type="number">40</item>
+               <item name="total" xsi:type="boolean">true</item>
+               <item name="component" xsi:type="string">Cocoro_SaleOrdersReport/js/grid/columns/column</item>
+               <item name="totalName" xsi:type="string">orders</item>
+            </item>
+         </argument>
+      </column>
+      <column name="purchase_date" component="Cocoro_SaleOrdersReport/js/grid/columns/date">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="draggable" xsi:type="boolean">false</item>
+               <item name="label" xsi:type="string" translate="true">Purchase Date</item>
+               <item name="sortOrder" xsi:type="number">50</item>
+               <item name="dataType" xsi:type="string">date</item>
+               <item name="dateFormat" xsi:type="string">MMM d, yyyy, hh:mm a</item>
+            </item>
+         </argument>
+      </column>
+      <column name="order_status">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="draggable" xsi:type="boolean">false</item>
+               <item name="label" xsi:type="string" translate="true">Order Status</item>
+               <item name="sortOrder" xsi:type="number">60</item>
+               <item name="component" xsi:type="string">Cocoro_SaleOrdersReport/js/grid/columns/column</item>
+            </item>
+         </argument>
+      </column>
+      <column name="order_type">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="draggable" xsi:type="boolean">false</item>
+               <item name="label" xsi:type="string" translate="true">Order Type</item>
+               <item name="sortOrder" xsi:type="number">70</item>
+               <item name="component" xsi:type="string">Cocoro_SaleOrdersReport/js/grid/columns/column</item>
+            </item>
+         </argument>
+      </column>
+      <column name="payment_method">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="draggable" xsi:type="boolean">false</item>
+               <item name="label" xsi:type="string" translate="true">Payment Method</item>
+               <item name="sortOrder" xsi:type="number">80</item>
+               <item name="component" xsi:type="string">Cocoro_SaleOrdersReport/js/grid/columns/column</item>
+            </item>
+         </argument>
+      </column>
+      <column name="subtotal_with_currency">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="draggable" xsi:type="boolean">false</item>
+               <item name="label" xsi:type="string" translate="true">Subtotal(excl. tax)</item>
+               <item name="sortOrder" xsi:type="number">90</item>
+               <item name="total" xsi:type="boolean">true</item>
+               <item name="component" xsi:type="string">Cocoro_SaleOrdersReport/js/grid/columns/column</item>
+               <item name="totalName" xsi:type="string">subtotal</item>
+            </item>
+         </argument>
+      </column>
+      <column name="tax_with_currency">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="draggable" xsi:type="boolean">false</item>
+               <item name="label" xsi:type="string" translate="true">Tax</item>
+               <item name="sortOrder" xsi:type="number">100</item>
+               <item name="total" xsi:type="boolean">true</item>
+               <item name="component" xsi:type="string">Cocoro_SaleOrdersReport/js/grid/columns/column</item>
+               <item name="totalName" xsi:type="string">tax_amount</item>
+            </item>
+         </argument>
+      </column>
+      <column name="subtotal_tax_with_currency">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="draggable" xsi:type="boolean">false</item>
+               <item name="label" xsi:type="string" translate="true">Subtotal(incl. tax)</item>
+               <item name="sortOrder" xsi:type="number">110</item>
+               <item name="total" xsi:type="boolean">true</item>
+               <item name="component" xsi:type="string">Cocoro_SaleOrdersReport/js/grid/columns/column</item>
+               <item name="totalName" xsi:type="string">subtotal_incl_tax</item>
+            </item>
+         </argument>
+      </column>
+      <column name="shipping_with_currency">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="draggable" xsi:type="boolean">false</item>
+               <item name="label" xsi:type="string" translate="true">Shipping(incl. tax)</item>
+               <item name="sortOrder" xsi:type="number">120</item>
+               <item name="total" xsi:type="boolean">true</item>
+               <item name="component" xsi:type="string">Cocoro_SaleOrdersReport/js/grid/columns/column</item>
+               <item name="totalName" xsi:type="string">shipping_incl_tax</item>
+            </item>
+         </argument>
+      </column>
+      <column name="discount_with_currency">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="draggable" xsi:type="boolean">false</item>
+               <item name="label" xsi:type="string" translate="true">Discount</item>
+               <item name="sortOrder" xsi:type="number">130</item>
+               <item name="total" xsi:type="boolean">true</item>
+               <item name="component" xsi:type="string">Cocoro_SaleOrdersReport/js/grid/columns/column</item>
+               <item name="totalName" xsi:type="string">discount_amount</item>
+            </item>
+         </argument>
+      </column>
+      <column name="cococoins_spent">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="draggable" xsi:type="boolean">false</item>
+               <item name="label" xsi:type="string" translate="true">Coco Coins Spent</item>
+               <item name="sortOrder" xsi:type="number">140</item>
+               <item name="total" xsi:type="boolean">true</item>
+               <item name="component" xsi:type="string">Cocoro_SaleOrdersReport/js/grid/columns/column</item>
+               <item name="totalName" xsi:type="string">cococoins_spent</item>
+            </item>
+         </argument>
+      </column>
+      <column name="cococoins_earn">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="draggable" xsi:type="boolean">false</item>
+               <item name="label" xsi:type="string" translate="true">Coco Coins Earn</item>
+               <item name="sortOrder" xsi:type="number">150</item>
+               <item name="total" xsi:type="boolean">true</item>
+               <item name="component" xsi:type="string">Cocoro_SaleOrdersReport/js/grid/columns/column</item>
+               <item name="totalName" xsi:type="string">cococoins_earn</item>
+            </item>
+         </argument>
+      </column>
+      <column name="sales_total_with_currency">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="draggable" xsi:type="boolean">false</item>
+               <item name="label" xsi:type="string" translate="true">Sales Total (incl. tax)</item>
+               <item name="sortOrder" xsi:type="number">160</item>
+               <item name="total" xsi:type="boolean">true</item>
+               <item name="component" xsi:type="string">Cocoro_SaleOrdersReport/js/grid/columns/column</item>
+               <item name="totalName" xsi:type="string">grand_total</item>
+            </item>
+         </argument>
+      </column>
+      <column name="refunded_with_currency">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="draggable" xsi:type="boolean">false</item>
+               <item name="label" xsi:type="string" translate="true">Refunded</item>
+               <item name="sortOrder" xsi:type="number">170</item>
+               <item name="total" xsi:type="boolean">true</item>
+               <item name="component" xsi:type="string">Cocoro_SaleOrdersReport/js/grid/columns/column</item>
+               <item name="totalName" xsi:type="string">total_refunded</item>
+            </item>
+         </argument>
+      </column>
+   </columns>
+</listing>

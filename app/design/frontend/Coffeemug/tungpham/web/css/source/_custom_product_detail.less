@@ -1,0 +1,78 @@
+.qty-main{
+  border: 1px solid rgb(201, 200, 200);
+  .qty-input-text{
+    width: 40px;
+    text-align: center;
+    border: none;
+  }
+  button{
+    border: none;
+    background-color: white;
+  }
+}
+.breadcrumbs-main{
+  height: 30px;
+  background-color: #cccbcb;
+  .breadcrumbs{
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.test-tabs{
+  .warpper{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .tab{
+    cursor: pointer;
+    padding:10px 20px;
+    margin:0px 0px;
+    background:#ffffff;
+    display:inline-block;
+    color:#a2a2a2;
+    border-radius:3px 3px 0px 0px;
+    // box-shadow: 0 0.5rem 0.8rem #00000080;
+  }
+  .panels{
+    background:#fffffff6;
+    min-height:200px;
+    width:100%;
+    max-width:none;
+    overflow:hidden;
+    padding:20px;  
+  }
+  .panel{
+    display:none;
+    animation: fadein .8s;
+  }
+  @keyframes fadein {
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  .panel-title{
+    font-size:1.5em;
+    font-weight:bold
+  }
+  .radio{
+    display:none;
+  }
+  #one:checked ~ .panels #one-panel,
+  #two:checked ~ .panels #two-panel,
+  #three:checked ~ .panels #three-panel{
+    display:block
+  }
+  #one:checked ~ .tabs #one-tab,
+  #two:checked ~ .tabs #two-tab,
+  #three:checked ~ .tabs #three-tab{
+    background:#fffffff6;
+    color:#3f3d3d;
+    border-bottom: 3px solid #a61878;
+  }
+}
