@@ -346,9 +346,21 @@ return [
         'Magento_WishlistAnalytics' => 1,
         'Magento_WishlistGraphQl' => 1,
         'Magento_WishlistSampleData' => 1,
-        'Cocoro_SaleOrdersReport' => 1,
+        'CustomModule_CustomEntity' => 1,
+        'Mageplaza_Core' => 1,
+        'Mageplaza_Smtp' => 1,
+        'MyModule_ModuleAdminAllowSecret' => 1,
+        'MyModule_TextBlock' => 1,
         'PayPal_Braintree' => 1,
         'PayPal_BraintreeGraphQl' => 1,
-        'Temando_ShippingRemover' => 1
+        'Temando_ShippingRemover' => 1,
+        'Training_Vendor' => 1,
+        'Unit1_Ex4' => 1,
+        'Unit2_Ex' => 1,
+        'Unit3_Ex' => 1,
+        'Unit3_RenderTextInController' => 1,
+        'Unit4_Ex' => 1,
+        'Unit5_CustomEntity' => 1,
+        'Unit5_ListProduct' => 1
     ]
 ];

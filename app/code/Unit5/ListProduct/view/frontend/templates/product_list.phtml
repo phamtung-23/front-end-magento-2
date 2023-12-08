@@ -1,0 +1,18 @@
+<h2>Product list:</h2>
+<?php
+$products = $block->getProductList();
+
+foreach ($products as $product) {
+    echo $product->getName() . "<br>";
+    // Add additional information or formatting as needed
+}
+?>
+<h2>Customer List:</h2>
+<?php
+$customers = $block->getCustomerList();
+
+foreach ($customers as $customer) {
+    echo get_class($customer) . "<br>"; // Output the object type
+    echo $customer->getFirstname() . ' ' . $customer->getLastname() . ' - ' . $customer->getEmail() . "<br>";
+    // Add additional information or formatting as needed
+}

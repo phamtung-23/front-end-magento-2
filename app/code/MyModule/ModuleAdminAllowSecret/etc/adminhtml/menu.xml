@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+   <menu>
+       <add id="MyModule_ModuleAdminAllowSecret::menu"
+           title="Test Menu" module="MyModule_ModuleAdminAllowSecret"
+           sortOrder="10"
+           resource="Magento_Backend::content"
+           />
+
+       <add id="MyModule_ModuleAdminAllowSecret::menu_item"
+           title="Helloworld Items" module="MyModule_ModuleAdminAllowSecret"
+           sortOrder="10" parent="MyModule_ModuleAdminAllowSecret::menu"
+           action="createmenubackend/create/index"
+           resource="MyModule_ModuleAdminAllowSecret::menu_item"
+           /> 
+   </menu>
+</config>

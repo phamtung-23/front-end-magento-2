@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="product.info.main">
+            <block class="Training\Vendor\Block\Product\MultiselectList" name="product.custom.multiselect.list" template="Training_Vendor::product/multiselect_list.phtml" after="product.info.overview">
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">Custom Multiselect List</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

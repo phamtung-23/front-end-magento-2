@@ -1,0 +1,5 @@
+<config>
+  <type name="Magento\Catalog\Block\Product\View\Description">
+    <plugin name="custom_block_description_vavc" type="MyModule\TextBlock\Plugin\CustomDescription" sortOrder="1" disabled="false"/>
+  </type>
+</config>

@@ -48,7 +48,7 @@ xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_config
             <container name="header.menu.content" label="headerRight" htmlTag="div"  htmlClass="header-menu-content" />
             <container name="main.breadcrumbs.custom"  htmlTag="div"  htmlClass="w-100 breadcrumbs-main" after="-"/>
         </referenceContainer>
-        
+       
         <!-- footer -->
         <referenceContainer name="footer">
            <container name="footer.container" label="footerContainer" htmlTag="div" htmlClass="footer-container">

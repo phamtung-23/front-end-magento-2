@@ -1,0 +1,6 @@
+<!-- File: app/code/Vendor/Module/etc/events.xml -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="controller_action_predispatch">
+        <observer name="log_request_url" instance="Unit1\Ex4\Observer\LogRequestUrl" />
+    </event>
+</config>
