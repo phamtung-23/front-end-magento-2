@@ -361,6 +361,7 @@ return [
         'Unit3_RenderTextInController' => 1,
         'Unit4_Ex' => 1,
         'Unit5_CustomEntity' => 1,
+        'Unit5_ExtensionalAttribute' => 1,
         'Unit5_ListProduct' => 1
     ]
 ];

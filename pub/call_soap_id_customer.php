@@ -1,7 +1,9 @@
 <?php
 
 $request = new SoapClient("https://tungpham.cmmage.app/index.php/soap/?wsdl&services=integrationAdminTokenServiceV1", array("soap_version" => SOAP_1_2));
+
 $token = $request->integrationAdminTokenServiceV1CreateAdminAccessToken(array("username"=>"john.smith", "password"=>"password123"));
+print_r($token->result);
 
 $request = new SoapClient("https://tungpham.cmmage.app/index.php/soap/default?wsdl&services=customerCustomerRepositoryV1", 
   array(
