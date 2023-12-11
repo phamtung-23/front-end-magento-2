@@ -5,16 +5,12 @@ $request = new SoapClient("https://tungpham.cmmage.app/index.php/soap/?wsdl&serv
 $token = $request->integrationAdminTokenServiceV1CreateAdminAccessToken(array("username"=>"john.smith", "password"=>"password123"));
 print_r($token->result);
 
-$request = new SoapClient("https://tungpham.cmmage.app/index.php/soap/default?wsdl&services=customerCustomerRepositoryV1", 
+$request = new SoapClient("https://tungpham.cmmage.app/index.php/soap/default?wsdl&services=catalogProductRepositoryV1", 
   array(
       "soap_version" => SOAP_1_2, 
       'stream_context' => stream_context_create(array(
           'http' => array('header' => "Authorization: Bearer " . $token->result)))));
-
-$customerId = 1; // Replace with the ID of the customer you want to retrieve
-$respone = $request->customerCustomerRepositoryV1GetById(array('customerId' => $customerId));
-print_r($respone);
-
+// get list product by filter
 $serviceArgs = array(
   'searchCriteria' =>
     array(
@@ -23,9 +19,9 @@ $serviceArgs = array(
           array(
             'filters' => array(
               array(
-                'field' => 'email',
-                'value' => 'roni_cost@example.com',
-                'condition_type' => 'like'
+                'field' => 'test_ok',
+                'value' => '1',
+                'condition_type' => 'eq'
               )
             )
           )
@@ -39,7 +35,14 @@ $serviceArgs = array(
         )
     )
 );
-$respone = $request->customerCustomerRepositoryV1GetList($serviceArgs);
+$respone = $request->catalogProductRepositoryV1GetList($serviceArgs);
 print_r($respone);
 
+// use method get to get product by sku
+$serviceArgsGet = array(
+  'sku' => 'ProductTest1'
+);
+
+$response = $request->catalogProductRepositoryV1Get($serviceArgsGet);
+print_r($response);
 ?>
