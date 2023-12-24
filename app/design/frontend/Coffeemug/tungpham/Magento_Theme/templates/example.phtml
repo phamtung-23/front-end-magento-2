@@ -1,0 +1,17 @@
+<div id="selector">
+  <button type="button" data-role="trigger">
+    <?= $block->getTriggerText() ?>
+  </button>
+
+  <div data-role="target" style="display: none;">
+    <?= $block->getChildHtml(); ?>
+  </div>
+</div>
+
+<script type="text/x-magento-init">
+  {
+    "#selector": {
+      "Magento_Theme/js/modal": <?= /* @escapeNotVerified */ $block->getJsLayout() ?>
+    }
+  }
+</script>

@@ -45,8 +45,7 @@ class Index extends Action
      */
     public function execute()
     {
-        $category = $this->repo->get(2);
-
+        $category = $this->repo->get(1);
         $this->getResponse()->appendBody(sprintf(
                 "%s (%d) country - %s\n",
                 $category->getName(),

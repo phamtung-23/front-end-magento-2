@@ -14,13 +14,10 @@ class InstallData implements InstallDataInterface
 {
     /* @var CategoryCountryFactory*/
     private $modelFactory;
-
     /* @var EntityManager*/
     private $em;
-
     /* @var LoggerInterface*/
     private $logger;
-
     /**
      * InstallData constructor.
      * @param CategoryCountryFactory $modelFactory
@@ -33,7 +30,6 @@ class InstallData implements InstallDataInterface
         $this->em = $em;
         $this->logger = $logger;
     }
-
     /**
      * Function install
      * @param ModuleDataSetupInterface $setup
@@ -46,19 +42,12 @@ class InstallData implements InstallDataInterface
             ['country_id' => 'AZ', 'category_id' => 1],
             ['country_id' => 'BE', 'category_id' => 2],
             ['country_id' => 'BR', 'category_id' => 3],
-//            ['country_id' => 'CA', 'category_id' => 4],
-//            ['country_id' => 'FR', 'category_id' => 5],
-//            ['country_id' => 'ID', 'category_id' => 6],
-//            ['country_id' => 'IT', 'category_id' => 7],
-//            ['country_id' => 'KZ', 'category_id' => 8]
         ];
 
         foreach ($data as $item){
             /* @var $mData CategoryCountry*/
             $mData = $this->modelFactory->create();
             $mData->setData($item);
-//            $this->logger->debug('Model - ' . json_encode($mData->toArray()));
-//            $this->logger->debug('Items - ' . json_encode($item));
             $this->em->save($mData);
         }
     }

@@ -33,7 +33,7 @@ define([
             if (this.validateForm()) {
                 // Perform AJAX form submission
                 $.ajax({
-                    url: 'https://tungpham.cmmage.app/en/contact/index/post/', // Replace with your actual URL
+                    url: 'https://tungpham.cmmage.app/en/contact/index/post/', 
                     method: 'POST',
                     data: {
                         name: this.formData().name,

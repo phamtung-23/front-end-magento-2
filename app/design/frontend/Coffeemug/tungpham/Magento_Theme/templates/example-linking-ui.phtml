@@ -1,0 +1,29 @@
+<div id="selector" data-bind="scope: 'parentComponent'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "#selector": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "parentComponent": {
+                        "component": "Magento_Theme/js/parent-component",
+                        "config": {
+                            "provider": "parentComponent.childComponent",
+                            "template": "Magento_Theme/person"
+                        },
+                        "children": {
+                            "childComponent": {
+                                "component": "Magento_Theme/js/child-component",
+                                "config": {
+                                    "provider": "parentComponent"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+</script>

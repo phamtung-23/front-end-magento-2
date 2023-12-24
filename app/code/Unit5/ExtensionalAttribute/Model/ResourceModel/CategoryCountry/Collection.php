@@ -13,6 +13,7 @@ class Collection extends AbstractCollection
      */
     public function _construct()
     {
-        $this->_init('Unit5\ExtensionalAttribute\Model\CategotyCountry', 'Unit5\ExtensionalAttribute\Model\ResourceModel\CategoryCountry');
+        $this->_init('Unit5\ExtensionalAttribute\Model\CategotyCountry', 
+        'Unit5\ExtensionalAttribute\Model\ResourceModel\CategoryCountry');
     }
 }

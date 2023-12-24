@@ -1,0 +1,72 @@
+<h2>Linking UI component</h2>
+<!-- ko if: person.firstName -->
+<p>
+    <strong data-bind="i18n: 'Name:'"></strong>
+    <span data-bind="text: person.firstName"></span>
+</p>
+<!-- /ko -->
+
+<!-- ko if: person.role -->
+<p>
+    <strong data-bind="i18n: 'Role:'"></strong>
+    <span data-bind="text: person.role"></span>
+</p>
+<!-- /ko -->
+
+<!-- ko if: person.location -->
+<p>
+    <strong data-bind="i18n: 'Location:'"></strong>
+    <span data-bind="text: person.location"></span>
+</p>
+<!-- /ko -->
+
+<!-- ko if: person.twitter -->
+<p>
+    <strong data-bind="i18n: 'Twitter:'"></strong>
+
+    <a target="_blank" data-bind="
+        attr: {
+            title: $t('Follow me on Twitter'),
+            href: getTwitterUrl()
+        },
+        text: getTwitterHandle()">
+    </a>
+</p>
+<!-- /ko -->
+
+<!-- ko if: status -->
+<p>
+    <strong data-bind="i18n: 'Status:'"></strong>
+    <span data-bind="text: status"></span>
+</p>
+<!-- /ko -->
+
+<p>
+    <strong data-bind="i18n: 'Bio:'"></strong>
+    <!-- ko if: bio -->
+    <span data-bind="text: bio"></span>
+    <!-- /ko -->
+
+    <!-- ko ifnot: bio -->
+    <span data-bind="i18n: 'Bio needs to be written.'"></span>
+    <!-- /ko -->
+</p>
+
+<fieldset class="fieldset">
+    <label class="label" for="bio">
+        <strong data-bind="i18n: 'Add you bio content:'"></strong>
+    </label>
+    <div class="control">
+        <textarea
+            id="bio"
+            cols="5"
+            rows="5"
+            data-bind="textInput: bio">
+        </textarea>
+    </div>
+</fieldset>
+
+<button type="button" class="action primary" data-bind="
+    click: setStatus,
+    text: getButtonText()">
+</button>

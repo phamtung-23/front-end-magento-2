@@ -1,0 +1,27 @@
+
+
+<div id="custom-text" data-bind="scope: 'text-ko'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+<!-- 
+<script type="text/x-magento-init">
+    {
+        "#custom-text": {
+            "Magento_Ui/js/core/app": {
+               "components": {
+                    "text-ko": {
+                        "component": "Magento_Catalog/js/knockout-text"
+                    }
+                }
+            }
+        }
+    }
+</script> -->
+
+<script type="text/x-magento-init">
+    {
+        "#custom-text": {
+            "Magento_Ui/js/core/app":  <?= /* @noEscape */ $block->getJsLayout() ?>
+        }
+    }
+</script>

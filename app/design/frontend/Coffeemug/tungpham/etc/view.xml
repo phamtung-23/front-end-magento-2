@@ -188,6 +188,11 @@
             </image>
         </images>
     </media>
+    
+    <vars module="Magento_Theme">
+        <var name="my_custom_var">Hello World</var> 
+    </vars>
+
     <vars module="Magento_Catalog">
 
         <!-- Gallery and magnifier theme settings. Start -->

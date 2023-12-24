@@ -61,6 +61,9 @@ xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_config
                     <container name="footer.payment" label="footerPayment" htmlTag="div"  htmlClass="footer-payment mt-3">
                         <block class="Magento\Framework\View\Element\Template" name="payment.info"  template="Magento_Theme::html/payment-info.phtml" />
                     </container>
+                     <container name="test.mess.container" label="testMess" htmlTag="div"  htmlClass="test-mess mt-3">
+                        <block class="Magento\Framework\View\Element\Template" name="test.message"  template="Magento_Theme::html/test-message.phtml"></block>
+                    </container>
                 </container>
            </container>
         </referenceContainer>
@@ -93,10 +96,65 @@ xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_config
         <move element="user.topbar" destination="header.content.action" after="-" />
         <!-- <move element="footer_links" destination="footer.main.row.one" after="-" /> -->
         <move element="copyright" destination="footer.copy.right" before="-" />
+        <!-- <move element="test.mess.container" destination="header.container"/> -->
 
         <referenceBlock name="footer_links" remove="true"></referenceBlock>
+
+        <referenceContainer name="test.mess.container">
+            <block class="Magento\Framework\View\Element\Template" name="additional.content" template="Magento_Theme::html/additional-content-message.phtml">
+                <arguments>
+                    <argument name="customData" xsi:type="string">This is custom data</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
         
 
+
+        <!-- <referenceContainer name="content">
+            <block class="Magento\Framework\View\Element\Template" name="custom.template" template="Magento_Theme::html/custom-template.phtml"/>
+        </referenceContainer> -->
+    <referenceContainer name="content">
+        <block name="example" before="-" template="Magento_Theme::example.phtml">
+            <arguments>
+                <!-- arguments for .phtml file -->
+                <argument name="trigger_text" translate="true" xsi:type="string">Trigger Text</argument>
+
+                <!-- config rendered by $block->getJsLayout() -->
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="autoOpen" xsi:type="boolean">true</item>
+                    <item name="buttons" xsi:type="array">
+                        <item name="buttonOne" xsi:type="array">
+                        <item name="text" translate="true" xsi:type="string">Button One</item>
+                        <item name="class" xsi:type="string">button-one-class</item>
+                    </item>
+                    <item name="buttonTwo" xsi:type="array">
+                        <item name="text" translate="true" xsi:type="string">Button Two</item>
+                        <item name="class" xsi:type="string">button-two-class</item>
+                        </item>
+                    </item>
+                    <item name="closeText" translate="true" xsi:type="string">Close</item>
+                    <item name="clickableOverlay" xsi:type="boolean">true</item>
+                    <item name="focus" xsi:type="string">[data-role="closeBtn"]</item>
+                    <item name="innerScroll" xsi:type="boolean">false</item>
+                    <item name="modalClass" xsi:type="string">modalClass</item>
+                    <item name="modalLeftMargin" xsi:type="number">45</item>
+                    <item name="responsive" xsi:type="boolean">false</item>
+                    <item name="title" translate="true" xsi:type="string">Modal Title</item>
+                    <item name="type" xsi:type="string">popup</item>
+                </argument>
+            </arguments>
+
+            <!-- modal contents, static cms block -->
+            <!-- <block class="Magento\Cms\Block\Block" name="modal.content">
+                <arguments>
+                <argument name="block_id" xsi:type="string">contact-us-info</argument>
+                </arguments>
+            </block> -->
+        </block>
+
+        <block class="Magento\Framework\View\Element\Template" name="knockout.text.block.array" template="Magento_Theme::knockout-text-array.phtml" after="-"></block>
+        <block name="example.linking.ui" template="Magento_Theme::example-linking-ui.phtml" after="-" />
+    </referenceContainer>   
 
 
         

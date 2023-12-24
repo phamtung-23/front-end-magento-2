@@ -2,7 +2,6 @@
 
 namespace Unit5\ExtensionalAttribute\Api\Data;
 
-
 interface CategoryCountryInterface
 {
     /**

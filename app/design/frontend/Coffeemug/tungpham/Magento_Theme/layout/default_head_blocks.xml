@@ -3,5 +3,6 @@
       <link src="favicon.png" rel="icon" type="image/x-icon" />
       <css src="css/bootstrap.css" />
       <css src="https://use.fontawesome.com/releases/v5.7.1/css/all.css" src_type="url"/>
+      <script src="js/custom-script.js" />
    </head>
 </page>

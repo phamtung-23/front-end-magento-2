@@ -1,0 +1,33 @@
+<div id="custom-toy" data-bind="scope: 'toy-ko'">
+    <div class="card p-5"> 
+        <div class="card-section">
+            <h2>Toy inventory</h2>
+            <p>These are the assets we have to work with.</p>
+            <button data-bind="click: addPerson">+ Add</button>
+            <ul data-bind="foreach: people">
+                <li>
+                    Name at position <span data-bind="text: $index"> </span>:
+                    <span data-bind="text: name"> </span>
+                    <a href="#" data-bind="click: $parent.removePerson">Remove</a>
+                </li>
+            </ul>
+        </div> 
+        <footer>
+            <span>Have a tail wagging day!</span>
+        </footer>
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "#custom-toy": {
+            "Magento_Ui/js/core/app": {
+               "components": {
+                    "toy-ko": {
+                        "component": "Magento_Theme/js/knockout-toy"
+                    }
+                }
+            }
+        }
+    }
+</script>
